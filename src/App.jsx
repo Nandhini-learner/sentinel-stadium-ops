@@ -560,7 +560,7 @@ function App() {
           {/* Left panel: Cricket action cover */}
           <div className="w-full md:w-1/2 relative bg-slate-955 min-h-[220px] md:min-h-[480px]">
             <img 
-              src="/cricket_match_feed.jpg" 
+              src="./cricket_match_feed.jpg" 
               alt="Cricket Match Live" 
               className="absolute inset-0 w-full h-full object-cover opacity-60" 
             />
@@ -1145,7 +1145,7 @@ function App() {
                       
                       {/* Actual Cricket Play Image background */}
                       <img 
-                        src="/cricket_match_feed.jpg" 
+                        src="./cricket_match_feed.jpg" 
                         alt="Live Cricket Feed" 
                         className="absolute inset-0 w-full h-full object-cover opacity-50 z-0 select-none pointer-events-none" 
                       />
