@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #0b0f19; /* Deep midnight sports blue */
+    color: #f1f5f9; /* slate-100 */
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, .font-hud {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Custom Scrollbar for dashboard cards */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(11, 15, 25, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(51, 65, 85, 0.5); /* slate-700 */
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(71, 85, 105, 0.7); /* slate-600 */
+}
+
+/* Custom pulse animations */
+@keyframes status-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+    filter: drop-shadow(0 0 6px currentColor);
+  }
+  50% {
+    transform: scale(0.85);
+    opacity: 0.5;
+    filter: drop-shadow(0 0 1px currentColor);
+  }
+}
+
+.animate-status-pulse {
+  animation: status-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Sporty Indigo Glow animation */
+@keyframes grid-glow-indigo {
+  0%, 100% {
+    border-color: rgba(99, 102, 241, 0.35); /* indigo-500 */
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.15), inset 0 0 15px rgba(99, 102, 241, 0.05);
+  }
+  50% {
+    border-color: rgba(99, 102, 241, 0.15);
+    box-shadow: 0 0 5px rgba(99, 102, 241, 0.05), inset 0 0 5px rgba(99, 102, 241, 0.02);
+  }
+}
+
+.animate-glow-critical {
+  animation: grid-glow-indigo 3s ease-in-out infinite;
+}
+
+/* Sporty Emerald Glow animation */
+@keyframes grid-glow-emerald {
+  0%, 100% {
+    border-color: rgba(16, 185, 129, 0.35); /* emerald-500 */
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.15), inset 0 0 15px rgba(16, 185, 129, 0.05);
+  }
+  50% {
+    border-color: rgba(16, 185, 129, 0.15);
+    box-shadow: 0 0 5px rgba(16, 185, 129, 0.05), inset 0 0 5px rgba(16, 185, 129, 0.02);
+  }
+}
+
+.animate-glow-warning {
+  animation: grid-glow-emerald 3s ease-in-out infinite;
+}
+
+@keyframes scanline {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+/* CRT monitor overlay scanline effect */
+.scanline-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline-effect::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(11, 15, 25, 0) 50%, rgba(11, 15, 25, 0.08) 50%);
+  background-size: 100% 4px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
